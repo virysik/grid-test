@@ -1,18 +1,109 @@
-h1 {
-  color: tomato;
+body {
+  padding: 20px;
+  background-color: grey;
+  color: white;
 }
-.grid {
+
+.grid__body {
   display: grid;
-  font-size: 30px;
-  padding: 20px;
-  color: white;
-  background-color: #794f45;
-  margin: 0px 0px 20px 0px;
+  grid-template: repeat(2, 1fr) / repeat(3, 200px);
+  /* grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 1fr); */
 }
-.grid-inline {
-  display: inline-grid;
+
+.grid__item {
+  font-size: 20px;
+  text-align: center;
+  /* border: 2px dashed rgba(255, 255, 255, 0.2); */
+  padding: 30px;
+}
+
+.blue {
+  border: 2px dashed blue;
+}
+.green {
+  border: 2px dashed green;
+}
+.red {
+  border: 2px dashed red;
+}
+.orange {
+  border: 2px dashed orange;
+}
+.purple {
+  border: 2px dashed purple;
+}
+.white {
+  border: 2px dashed white;
+}
+.pink {
+  border: 2px dashed pink;
+}
+
+/*---Area names---*/
+
+.grid-wrapper {
+  display: grid;
+
+  grid-template:
+    [start] "header header" 100px[row2]
+    [row2] "side content" 1fr[row-end]/150px 1fr;
+}
+/* grid-template-columns: 150px 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas:
+    "header header"
+    "side content";
+ */
+
+.grid-header,
+.grid-side,
+.grid-content {
+  padding: 30px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  margin: 0px 0px 15px 0px;
+}
+
+.grid-header {
+  grid-area: header;
+}
+
+.grid-side {
+  grid-area: side;
+}
+
+.grid-content {
+  grid-area: content;
+}
+
+.grid-auto {
+  display: grid;
+  /* grid-template: 1fr 1fr / repeat(2, 1fr); */
+  grid-auto-rows: 100px;
+  grid-auto-columns: 100px;
+}
+
+.grid-auto__item {
+  text-align: center;
+  padding: 30px;
   font-size: 30px;
-  padding: 20px;
-  color: white;
-  background-color: #77608d;
+}
+
+.grid-masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template: 1fr 1fr / repeat(2, 1fr); */
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+  counter-reset: item;
+}
+
+.grid-masonry__item {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.grid-masonry__item.purple {
+  grid-column: span 2;
+  grid-row: span 2;
 }
