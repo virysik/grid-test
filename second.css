@@ -1,0 +1,85 @@
+body {
+  padding: 20px;
+  background-color: grey;
+  color: white;
+}
+
+.nav {
+  display: grid;
+  grid-template: 1fr/120px 120px;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.nav__link {
+  position: relative;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.nav__link:hover::before {
+  left: calc(100% - 20px);
+}
+
+.nav__link:hover::after {
+  right: calc(100% - 20px);
+}
+
+.nav__link::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 20px;
+  height: 2px;
+  left: 0;
+  top: -2px;
+  background-color: grey;
+  transition: 500ms ease-in-out;
+}
+
+.nav__link::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 20px;
+  height: 2px;
+  right: 0;
+  bottom: -2px;
+  background-color: grey;
+  transition: 500ms ease-in-out;
+}
+
+.grid {
+  display: grid;
+  outline: 1px solid;
+  grid-template-rows: [start] 150px [row2] 150px [row-end];
+  grid-template-columns: [start] 1fr [col2] 1fr [col3] 1fr [col-end];
+  /* grid-template: repeat(2, 1fr) / repeat(3, 1fr); */
+  /* justify-items: start;
+  align-items: end; */
+  row-gap: 20px;
+  column-gap: 30px;
+}
+
+.grid__item {
+  padding: 30px;
+  text-align: center;
+  border: 2px dashed white;
+}
+
+.grid__item1 {
+  /* grid-row-start: row-end; */
+  /* grid-column-start: col3; */
+  align-self: stretch;
+  justify-self: stretch;
+  grid-row: start / row2;
+  grid-column: col2 / col3;
+  background-color: #794f45;
+}
